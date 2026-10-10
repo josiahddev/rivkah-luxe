@@ -17,7 +17,7 @@ export default async function SubscribersPage() {
       <PageHeader
         title="Email subscribers"
         description={`${active} people have agreed to receive your emails. Export the list to use in Mailchimp, Klaviyo or similar. Only email people on this list — Canada's anti-spam law (CASL) requires consent.`}
-        actions={<a href="/api/admin/subscribers" className="inline-flex items-center gap-2 rounded-md bg-ink px-5 py-3 text-sm font-medium text-ivory"><DownloadIcon size={16} /> Export CSV</a>}
+        actions={/* file download, not a page */ <a href="/api/admin/subscribers" download className="inline-flex items-center gap-2 rounded-md bg-ink px-5 py-3 text-sm font-medium text-ivory"><DownloadIcon size={16} /> Export CSV</a>}
       />
       {subs.length === 0 ? <AdminEmpty title="No subscribers yet." message="People who sign up from your website footer, homepage or checkout appear here." /> : (
         <div className="overflow-x-auto rounded-lg border border-line bg-white">
@@ -30,7 +30,7 @@ export default async function SubscribersPage() {
                   <td className={`${td} text-stone`}>{formatDate(s.createdAt)}</td>
                   <td className={`${td} text-stone`}>{s.source ?? "—"}</td>
                   <td className={td}>{s.status === "SUBSCRIBED" ? <Pill tone="green">Subscribed</Pill> : <Pill>Unsubscribed</Pill>}</td>
-                  <td className={`${td} text-right`}>{s.status === "SUBSCRIBED" && <QuickAction action={() => unsubscribe(s.id)}>Unsubscribe</QuickAction>}</td>
+                  <td className={`${td} text-right`}>{s.status === "SUBSCRIBED" && <QuickAction action={unsubscribe.bind(null, s.id)}>Unsubscribe</QuickAction>}</td>
                 </tr>
               ))}
             </tbody>

@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
@@ -62,7 +64,7 @@ export function ProductHero({
   };
 
   return (
-    <div className="grid gap-10 lg:grid-cols-[1.15fr_1fr] lg:gap-16">
+    <div className="grid grid-cols-1 gap-10 lg:grid-cols-[1.15fr_1fr] lg:gap-16">
       <ProductGallery images={images} name={product.name} videoUrl={product.videoUrl} activeImage={v?.imageUrl} />
 
       <div className="lg:sticky lg:top-28 lg:self-start">
@@ -127,7 +129,7 @@ export function ProductHero({
 
         <div className="mt-4 flex gap-3">
           <QuantityInput value={qty} onChange={setQty} max={Math.max(1, Math.min(20, v?.stock ?? 1))} />
-          <Button className="flex-1" size="lg" onClick={() => onAdd(false)} disabled={!inStock || busy !== null} loading={busy === "add"} loadingText="Adding to bag…">
+          <Button className="min-w-0 flex-1 px-4" size="lg" onClick={() => onAdd(false)} disabled={!inStock || busy !== null} loading={busy === "add"} loadingText="Adding to bag…">
             {inStock ? "Add to bag" : "Sold out"}
           </Button>
           <button
@@ -166,7 +168,7 @@ export function ProductHero({
             <ReturnIcon size={22} className="mt-0.5 shrink-0 text-gold-deep" />
             <div>
               <p className="font-medium">Returns</p>
-              <p className="mt-1 text-stone">{returnsSummary} <a href="/returns-refunds" className="underline underline-offset-4 hover:text-ink">Details</a></p>
+              <p className="mt-1 text-stone">{returnsSummary} <Link href="/returns-refunds" className="underline underline-offset-4 hover:text-ink">Details</Link></p>
             </div>
           </div>
           <div className="flex gap-4 py-4">

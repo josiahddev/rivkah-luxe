@@ -73,10 +73,30 @@
   }
 }
 
+/* Devices with a real mouse/trackpad. Hover-only UI uses this so iPads and
+   phones never get invisible-but-tappable buttons. */
+@custom-variant can-hover (@media (hover: hover) and (pointer: fine));
+
 @layer base {
   html {
     -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
     scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+  /* iOS Safari zooms into any form field smaller than 16px — keep fields at 16px on touch screens. */
+  @media (hover: none), (pointer: coarse) {
+    input:not([type="checkbox"]):not([type="radio"]),
+    select,
+    textarea {
+      font-size: 16px !important;
+    }
+  }
+  button,
+  a,
+  [role="button"],
+  summary {
+    touch-action: manipulation;
   }
   body {
     background: var(--color-ivory);
@@ -109,6 +129,14 @@
   }
   [hidden] {
     display: none !important;
+  }
+  /* Grid/flex children may shrink below their content width, so nothing pushes
+     the page wider than a phone screen. */
+  .grid {
+    grid-template-columns: minmax(0, 1fr); /* grid-cols-* utilities override this */
+  }
+  .grid > * {
+    min-width: 0;
   }
 }
 
@@ -177,6 +205,11 @@
   /* Scroll reveal (driven by components/ui/reveal.tsx) */
   .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.9s var(--ease-luxe), transform 0.9s var(--ease-luxe); }
   .reveal.is-visible { opacity: 1; transform: none; }
+
+  /* Keep content clear of the iPhone home bar / Android gesture bar and notches. */
+  .pb-safe { padding-bottom: max(1rem, env(safe-area-inset-bottom)); }
+  .bottom-safe { bottom: max(1.25rem, calc(env(safe-area-inset-bottom) + 0.75rem)); }
+  .px-safe { padding-left: max(1rem, env(safe-area-inset-left)); padding-right: max(1rem, env(safe-area-inset-right)); }
 
   .no-scrollbar { scrollbar-width: none; }
   .no-scrollbar::-webkit-scrollbar { display: none; }

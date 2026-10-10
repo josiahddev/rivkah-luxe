@@ -136,7 +136,7 @@ export function QuickAction({ action, children, className, success }: { action: 
 
 export function SubmitBar({ pending, label = "Save changes", cancelHref, extra }: { pending: boolean; label?: string; cancelHref?: string; extra?: ReactNode }) {
   return (
-    <div className="sticky bottom-0 z-20 -mx-4 mt-8 flex flex-wrap items-center justify-end gap-3 border-t border-line bg-ivory/95 px-4 py-4 backdrop-blur sm:-mx-6 sm:px-6 lg:-mx-10 lg:px-10">
+    <div className="pb-safe sticky bottom-0 z-20 -mx-4 mt-8 flex flex-wrap items-center justify-end gap-3 border-t border-line bg-ivory/95 px-4 pt-4 backdrop-blur sm:-mx-6 sm:px-6 lg:-mx-10 lg:px-10">
       {extra}
       {cancelHref && (
         <a href={cancelHref} className="rounded-md px-4 py-3 text-sm text-stone hover:text-ink">

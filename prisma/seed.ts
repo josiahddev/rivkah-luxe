@@ -59,17 +59,17 @@ async function seedConfig() {
 
   const sections: Record<string, Prisma.InputJsonValue> = {
     hero: { imageUrl: "/demo/hero-packaging.webp" },
-    brandStory: { imageUrl: "/demo/cinnamon-kiss-oil-118.webp" },
+    brandStory: { imageUrl: "/demo/products/cinnamon-kiss-oil.webp" },
     promoBanner: { imageUrl: "/demo/hero-packaging.webp" },
     social: {
       heading: "Follow the glow",
       text: "Share your ritual with us",
       images: [
-        "/demo/cinnamon-kiss-oil-118.webp",
-        "/demo/glow-body-oil.webp",
-        "/demo/peach-bloom-oil-237.webp",
-        "/demo/vanilla-cashmere-oil-237.webp",
-        "/demo/cinnamon-delight-oil.webp",
+        "/demo/products/cinnamon-kiss-oil.webp",
+        "/demo/products/glow-body-oil.webp",
+        "/demo/products/peach-bloom-oil.webp",
+        "/demo/products/vanilla-cashmere-oil.webp",
+        "/demo/products/cinnamon-delight-oil.webp",
         "/demo/hero-packaging.webp",
       ],
     },
@@ -166,10 +166,10 @@ async function seedConfig() {
 
 async function seedCatalogue() {
   const cats = [
-    { name: "Body Oils", slug: "body-oils", description: "Silky, fast-absorbing oils for a lasting glow.", imageUrl: "/demo/peach-bloom-oil-237.webp", sortOrder: 0 },
-    { name: "Body Scrubs", slug: "body-scrubs", description: "Polish, soften and reveal smoother skin.", imageUrl: "/demo/placeholder-body-scrub.webp", sortOrder: 1 },
-    { name: "Body Butter", slug: "body-butter", description: "Rich, whipped moisture for deep comfort.", imageUrl: "/demo/placeholder-body-butter.webp", sortOrder: 2 },
-    { name: "Skincare", slug: "skincare", description: "Gentle essentials for everyday care.", imageUrl: "/demo/glow-body-oil.webp", sortOrder: 3 },
+    { name: "Body Oils", slug: "body-oils", description: "Silky, fast-absorbing oils for a lasting glow.", imageUrl: "/demo/products/peach-bloom-oil.webp", sortOrder: 0 },
+    { name: "Body Scrubs", slug: "body-scrubs", description: "Polish, soften and reveal smoother skin.", imageUrl: "/demo/products/cinnamon-kiss-scrub.webp", sortOrder: 1 },
+    { name: "Body Butter", slug: "body-butter", description: "Rich, whipped moisture for deep comfort.", imageUrl: "/demo/products/whipped-body-butter.webp", sortOrder: 2 },
+    { name: "Skincare", slug: "skincare", description: "Gentle essentials for everyday care.", imageUrl: "/demo/products/glow-body-oil.webp", sortOrder: 3 },
     { name: "Gift Sets", slug: "gift-sets", description: "Wrapped in black and gold, ready to give.", imageUrl: "/demo/hero-packaging.webp", sortOrder: 4 },
   ];
   const catId: Record<string, string> = {};
@@ -179,12 +179,12 @@ async function seedCatalogue() {
   }
   const newArrivals = await db.collection.upsert({
     where: { slug: "new-arrivals" },
-    create: { name: "New Arrivals", slug: "new-arrivals", description: "The latest additions to the Rivkah Luxe collection.", imageUrl: "/demo/peach-bloom-oil-189.webp" },
+    create: { name: "New Arrivals", slug: "new-arrivals", description: "The latest additions to the Rivkah Luxe collection.", imageUrl: "/demo/products/peach-bloom-oil-2.webp" },
     update: {},
   });
   const valentine = await db.collection.upsert({
     where: { slug: "valentines-edit" },
-    create: { name: "Valentine's Edit", slug: "valentines-edit", description: "Warm, romantic scents to gift — or keep.", imageUrl: "/demo/cinnamon-kiss-oil-237.webp" },
+    create: { name: "Valentine's Edit", slug: "valentines-edit", description: "Warm, romantic scents to gift — or keep.", imageUrl: "/demo/products/cinnamon-kiss-oil.webp" },
     update: {},
   });
 
@@ -210,11 +210,11 @@ async function seedCatalogue() {
       description: "<p>Cinnamon Kiss wraps your skin in warmth. A blend of lightweight oils glides on easily and absorbs without a greasy finish, leaving skin feeling soft with a subtle sheen and a cosy cinnamon scent that stays with you.</p>",
       ingredients: oilIngredients, benefits: "Leaves skin feeling soft and moisturised\nLightweight, non-greasy finish\nWarm cinnamon fragrance", howToUse: oilHowTo,
       size: "118ml · 189ml · 237ml", tags: ["cinnamon", "body oil", "warm", "bestseller"],
-      images: ["/demo/cinnamon-kiss-oil-118.webp", "/demo/cinnamon-kiss-oil-237.webp", "/demo/cinnamon-kiss-oil-189.webp"],
+      images: ["/demo/products/cinnamon-kiss-oil.webp", "/demo/products/cinnamon-kiss-oil.webp", "/demo/products/cinnamon-kiss-oil-2.webp"],
       variants: [
-        { name: "118ml", sku: "RL-CK-OIL-118", price: C(18), cost: C(7), stock: 24, weight: 180, image: "/demo/cinnamon-kiss-oil-118.webp", optionType: "Volume" },
-        { name: "189ml", sku: "RL-CK-OIL-189", price: C(26), cost: C(10), stock: 18, weight: 260, image: "/demo/cinnamon-kiss-oil-189.webp", optionType: "Volume" },
-        { name: "237ml", sku: "RL-CK-OIL-237", price: C(32), salePrice: C(29), cost: C(12.5), stock: 12, weight: 320, image: "/demo/cinnamon-kiss-oil-237.webp", optionType: "Volume" },
+        { name: "118ml", sku: "RL-CK-OIL-118", price: C(18), cost: C(7), stock: 24, weight: 180, image: "/demo/products/cinnamon-kiss-oil.webp", optionType: "Volume" },
+        { name: "189ml", sku: "RL-CK-OIL-189", price: C(26), cost: C(10), stock: 18, weight: 260, image: "/demo/products/cinnamon-kiss-oil-2.webp", optionType: "Volume" },
+        { name: "237ml", sku: "RL-CK-OIL-237", price: C(32), salePrice: C(29), cost: C(12.5), stock: 12, weight: 320, image: "/demo/products/cinnamon-kiss-oil.webp", optionType: "Volume" },
       ],
       featured: true, collections: [valentine.id], createdDaysAgo: 120,
     },
@@ -224,10 +224,10 @@ async function seedCatalogue() {
       description: "<p>Peach Bloom is sunshine in a bottle. Light oils sink in quickly for skin that feels supple and smooth, finished with a juicy peach and soft floral fragrance.</p>",
       ingredients: oilIngredients, benefits: "Fast-absorbing, everyday moisture\nSoft, radiant-looking finish\nFresh peach & floral scent", howToUse: oilHowTo,
       size: "189ml · 237ml", tags: ["peach", "floral", "body oil", "new"],
-      images: ["/demo/peach-bloom-oil-237.webp", "/demo/peach-bloom-oil-189.webp"],
+      images: ["/demo/products/peach-bloom-oil.webp", "/demo/products/peach-bloom-oil-2.webp"],
       variants: [
-        { name: "189ml", sku: "RL-PB-OIL-189", price: C(26), cost: C(10), stock: 20, weight: 260, image: "/demo/peach-bloom-oil-189.webp", optionType: "Volume" },
-        { name: "237ml", sku: "RL-PB-OIL-237", price: C(32), cost: C(12.5), stock: 15, weight: 320, image: "/demo/peach-bloom-oil-237.webp", optionType: "Volume" },
+        { name: "189ml", sku: "RL-PB-OIL-189", price: C(26), cost: C(10), stock: 20, weight: 260, image: "/demo/products/peach-bloom-oil-2.webp", optionType: "Volume" },
+        { name: "237ml", sku: "RL-PB-OIL-237", price: C(32), cost: C(12.5), stock: 15, weight: 320, image: "/demo/products/peach-bloom-oil.webp", optionType: "Volume" },
       ],
       featured: true, collections: [newArrivals.id], createdDaysAgo: 9,
     },
@@ -237,10 +237,10 @@ async function seedCatalogue() {
       description: "<p>Vanilla Cashmere feels like your favourite knit. A smooth blend of oils leaves skin feeling nourished, with a creamy vanilla scent that is warm without being sweet.</p>",
       ingredients: oilIngredients, benefits: "Comforting, all-day moisture\nSilky, non-sticky feel\nCreamy vanilla scent", howToUse: oilHowTo,
       size: "189ml · 237ml", tags: ["vanilla", "body oil", "gourmand"],
-      images: ["/demo/vanilla-cashmere-oil-237.webp", "/demo/vanilla-cashmere-oil-189.webp"],
+      images: ["/demo/products/vanilla-cashmere-oil.webp", "/demo/products/vanilla-cashmere-oil-2.webp"],
       variants: [
-        { name: "189ml", sku: "RL-VC-OIL-189", price: C(26), cost: C(10), stock: 14, weight: 260, image: "/demo/vanilla-cashmere-oil-189.webp", optionType: "Volume" },
-        { name: "237ml", sku: "RL-VC-OIL-237", price: C(32), cost: C(12.5), stock: 4, low: 5, weight: 320, image: "/demo/vanilla-cashmere-oil-237.webp", optionType: "Volume" },
+        { name: "189ml", sku: "RL-VC-OIL-189", price: C(26), cost: C(10), stock: 14, weight: 260, image: "/demo/products/vanilla-cashmere-oil-2.webp", optionType: "Volume" },
+        { name: "237ml", sku: "RL-VC-OIL-237", price: C(32), cost: C(12.5), stock: 4, low: 5, weight: 320, image: "/demo/products/vanilla-cashmere-oil.webp", optionType: "Volume" },
       ],
       featured: true, createdDaysAgo: 90,
     },
@@ -249,7 +249,7 @@ async function seedCatalogue() {
       short: "A rich, velvety vanilla body oil for evenings and slow self-care rituals.",
       description: "<p>Vanilla Velvet is our most indulgent vanilla — deeper, softer and made for unhurried evenings.</p>",
       ingredients: oilIngredients, howToUse: oilHowTo, size: "237ml", tags: ["vanilla", "body oil"],
-      images: ["/demo/placeholder-vanilla-velvet.webp"],
+      images: ["/demo/products/vanilla-velvet-oil.webp"],
       variants: [{ name: "237ml", sku: "RL-VV-OIL-237", price: C(34), cost: C(13), stock: 10, weight: 320, optionType: "Volume" }],
       collections: [newArrivals.id], createdDaysAgo: 4,
     },
@@ -258,7 +258,7 @@ async function seedCatalogue() {
       short: "Sweet cinnamon with a playful twist — a comforting oil for everyday glow.",
       description: "<p>Cinnamon Delight brings a sweeter take on our signature spice, leaving skin soft with a cheerful, comforting scent.</p>",
       ingredients: oilIngredients, howToUse: oilHowTo, size: "237ml", tags: ["cinnamon", "body oil"],
-      images: ["/demo/cinnamon-delight-oil.webp"],
+      images: ["/demo/products/cinnamon-delight-oil.webp"],
       variants: [{ name: "237ml", sku: "RL-CD-OIL-237", price: C(32), cost: C(12.5), stock: 9, weight: 320, optionType: "Volume" }],
       collections: [valentine.id], createdDaysAgo: 60,
     },
@@ -268,7 +268,7 @@ async function seedCatalogue() {
       description: "<p>Our Glow Body Oil pairs shea butter with sweet almond oil for a lightweight finish that leaves skin looking luminous.</p>",
       ingredients: "Shea Butter, Sweet Almond Oil. (Full ingredient list to be added.)", benefits: "Lightweight\nHydrating\nLuminous-looking finish", howToUse: oilHowTo,
       size: "100ml", tags: ["glow", "almond", "shea", "body oil"],
-      images: ["/demo/glow-body-oil.webp"],
+      images: ["/demo/products/glow-body-oil.webp"],
       variants: [{ name: "100ml", sku: "RL-GLOW-100", price: C(22), salePrice: C(19), cost: C(8), stock: 30, weight: 150, optionType: "Volume" }],
       featured: true, createdDaysAgo: 45,
     },
@@ -278,7 +278,7 @@ async function seedCatalogue() {
       description: "<p>Our Cinnamon Kiss scrub buffs away dullness and leaves skin feeling smooth and soft — the perfect first step before your body oil.</p>",
       howToUse: "On damp skin, massage a small amount in circular motions. Rinse well. Follow with Cinnamon Kiss Body Oil. Avoid broken or irritated skin.",
       size: "237ml · 500ml", tags: ["scrub", "cinnamon", "exfoliate"],
-      images: ["/demo/placeholder-body-scrub.webp"],
+      images: ["/demo/products/cinnamon-kiss-scrub.webp"],
       variants: [
         { name: "237ml", sku: "RL-CK-SCRUB-237", price: C(24), cost: C(9), stock: 16, weight: 350, optionType: "Size" },
         { name: "500ml", sku: "RL-CK-SCRUB-500", price: C(42), cost: C(16), stock: 7, weight: 680, optionType: "Size" },
@@ -291,7 +291,7 @@ async function seedCatalogue() {
       description: "<p>Our whipped body butter is light to the touch but rich on the skin. Choose your scent.</p>",
       howToUse: "Scoop a small amount and massage into skin until absorbed. Best on elbows, knees and heels.",
       size: "250ml", tags: ["body butter", "shea", "moisture"],
-      images: ["/demo/placeholder-body-butter.webp"],
+      images: ["/demo/products/whipped-body-butter.webp"],
       variants: [
         { name: "Vanilla", sku: "RL-BUTTER-VAN", price: C(28), cost: C(10.5), stock: 3, low: 5, weight: 300, optionType: "Fragrance" },
         { name: "Cinnamon", sku: "RL-BUTTER-CIN", price: C(28), cost: C(10.5), stock: 0, low: 5, weight: 300, optionType: "Fragrance" },
@@ -303,7 +303,7 @@ async function seedCatalogue() {
       short: "Three body oils of your choice, presented in our black and gold Rivkah Luxe box.",
       description: "<p>Our signature box, packed by hand with three of our best-loved body oils. Ready to gift — or to keep.</p><p>Add a note at checkout under delivery instructions and we'll handwrite it on a card.</p>",
       size: "3 × 189ml", tags: ["gift", "set", "box", "valentine"],
-      images: ["/demo/hero-packaging.webp", "/demo/peach-bloom-oil-189.webp", "/demo/vanilla-cashmere-oil-189.webp"],
+      images: ["/demo/hero-packaging.webp", "/demo/products/peach-bloom-oil-2.webp", "/demo/products/vanilla-cashmere-oil-2.webp"],
       variants: [
         { name: "Set of 3", sku: "RL-GIFT-SIG-3", price: C(76), salePrice: C(69), cost: C(31), stock: 6, low: 3, weight: 1100, optionType: "Pack size" },
       ],

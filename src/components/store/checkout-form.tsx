@@ -14,6 +14,7 @@ import type { CartView } from "@/lib/cart";
 import type { Totals } from "@/lib/pricing";
 import { CouponBox } from "./cart-page";
 import { useCart } from "./cart-context";
+import { PaymentBadges } from "./payment-badges";
 
 type Addr = { id: string; label: string | null; fullName: string; phone: string; line1: string; line2: string | null; city: string; state: string; postalCode: string | null; country: string };
 
@@ -96,7 +97,7 @@ export function CheckoutForm({
       <div className="space-y-12">
         {/* Contact */}
         <section aria-labelledby="contact-h">
-          <div className="mb-6 flex items-baseline justify-between">
+          <div className="mb-6 flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
             <h2 id="contact-h" className="font-display text-3xl">Contact</h2>
             {!user && (
               <Link href="/login?next=/checkout" className="text-sm text-stone underline underline-offset-4 hover:text-ink">
@@ -222,6 +223,7 @@ export function CheckoutForm({
           <Button type="submit" size="lg" className="w-full" loading={busy} loadingText={redirecting ? "Taking you to secure payment…" : "Processing…"} disabled={!payment.available || view.hasIssues}>
             <LockIcon size={16} /> Pay {formatMoney(totals.total, currency)}
           </Button>
+          <PaymentBadges size="sm" className="justify-center" />
           {payment.available && (
             <p className="text-center text-xs text-stone">
               You&apos;ll pay securely with {payment.providerLabel}. We never see or store your card details.

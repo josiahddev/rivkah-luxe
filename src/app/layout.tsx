@@ -45,11 +45,12 @@ export const viewport: Viewport = {
   themeColor: "#0f0e0c",
   width: "device-width",
   initialScale: 1,
+  viewportFit: "cover",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en-NG" className={`${cormorant.variable} ${jost.variable} antialiased`}>
+    <html lang="en-CA" className={`${cormorant.variable} ${jost.variable} antialiased`}>
       <body className="min-h-dvh">
         <div className="brand-veil" aria-hidden="true">
           <div className="brand-veil-mark text-center">

@@ -3,7 +3,7 @@ import { requireAdmin } from "@/lib/auth/session";
 import { getSettings } from "@/lib/settings";
 import { siteUrl } from "@/lib/utils";
 import { PageHeader } from "@/components/admin/ui";
-import { emptyVariant, ProductForm } from "@/components/admin/product-form";
+import { ProductForm } from "@/components/admin/product-form";
 
 export const metadata = { title: "Add product" };
 
@@ -25,7 +25,7 @@ export default async function NewProductPage() {
         initial={{
           name: "", slug: "", sku: "", categoryId: "", subcategoryId: "", shortDescription: "", description: "", ingredients: "", benefits: "",
           howToUse: "", size: "", dimensions: "", videoUrl: "", tags: "", status: "PUBLISHED", isFeatured: false, seoTitle: "", seoDescription: "",
-          collections: [], images: [], variants: [emptyVariant()],
+          collections: [], images: [], variants: [],
         }}
       />
     </>

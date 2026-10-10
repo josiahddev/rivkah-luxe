@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 import { deleteCategory, deleteCollection, saveCategory, saveCollection } from "@/server/admin/products";
 import { Checkbox, Input, Select, Textarea } from "@/components/ui/form";
 import { Button } from "@/components/ui/button";
@@ -34,7 +36,7 @@ export function CategoryForm({ category: c, parents }: { category: Cat | null; p
           </details>
           <div className="flex gap-2">
             <Button type="submit" className="rounded-md" loading={pending}>{c ? "Save category" : "Add category"}</Button>
-            {c && <a href="/admin/categories" className="px-3 py-3 text-sm text-stone">Cancel</a>}
+            {c && <Link href="/admin/categories" className="px-3 py-3 text-sm text-stone">Cancel</Link>}
           </div>
         </div>
       )}
@@ -71,7 +73,7 @@ export function CollectionForm({ collection: c }: { collection: Col | null }) {
           <Checkbox name="isActive" defaultChecked={c?.isActive ?? true} label="Visible in the shop menu" />
           <div className="flex gap-2">
             <Button type="submit" className="rounded-md" loading={pending}>{c ? "Save collection" : "Add collection"}</Button>
-            {c && <a href="/admin/categories" className="px-3 py-3 text-sm text-stone">Cancel</a>}
+            {c && <Link href="/admin/categories" className="px-3 py-3 text-sm text-stone">Cancel</Link>}
           </div>
         </div>
       )}

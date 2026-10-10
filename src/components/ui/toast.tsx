@@ -31,7 +31,7 @@ export function ToastProvider({ children }: { children: React.ReactNode }) {
   return (
     <ToastCtx.Provider value={{ toast }}>
       {children}
-      <div aria-live="polite" aria-atomic="false" className="no-print pointer-events-none fixed inset-x-0 bottom-4 z-[80] flex flex-col items-center gap-2 px-4 sm:bottom-6 sm:items-end sm:px-6">
+      <div aria-live="polite" aria-atomic="false" className="no-print pointer-events-none bottom-safe fixed inset-x-0 z-[80] flex flex-col items-center gap-2 px-4 sm:items-end sm:px-6">
         {toasts.map((t) => (
           <ToastItem key={t.id} toast={t} onClose={() => dismiss(t.id)} />
         ))}

@@ -8,7 +8,7 @@ export function WhatsAppFloat({ number, storeName }: { number: string; storeName
       href={whatsappLink(number, `Hello ${storeName}, I have a question.`)}
       target="_blank"
       rel="noopener noreferrer"
-      className="no-print group fixed bottom-5 right-5 z-40 flex items-center gap-2 rounded-full bg-ink py-3 pl-3 pr-3 text-ivory shadow-[0_14px_30px_-12px_rgba(15,14,12,0.55)] transition-all duration-500 hover:pr-5 sm:bottom-6 sm:right-6"
+      className="no-print group bottom-safe fixed right-4 z-40 flex items-center gap-2 rounded-full bg-ink py-3 pl-3 pr-3 text-ivory shadow-[0_14px_30px_-12px_rgba(15,14,12,0.55)] transition-all duration-500 hover:pr-5 sm:right-6"
       aria-label="Chat with us on WhatsApp"
     >
       <span className="grid size-8 place-items-center rounded-full bg-[#25D366] text-white">

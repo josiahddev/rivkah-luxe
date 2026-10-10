@@ -120,7 +120,7 @@ export function HeaderClient({
 
           {/* Right: actions */}
           <div className="flex items-center justify-end gap-0.5 sm:gap-1.5">
-            <CurrencySwitcher current={currency} options={currencies} className="mr-2 hidden lg:inline-flex" />
+            <span className="mr-2 hidden lg:inline-flex"><CurrencySwitcher current={currency} options={currencies} /></span>
             <button className="p-2 transition-colors hover:text-gold-deep" onClick={() => setSearchOpen(true)} aria-label="Search">
               <SearchIcon size={21} />
             </button>

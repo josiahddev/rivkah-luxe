@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 import Image from "next/image";
 import { useState } from "react";
 import { deleteFaq, deletePage, saveAnnouncement, saveFaq, savePage, saveSection } from "@/server/admin/site";
@@ -125,7 +127,7 @@ export function FaqEditor({ faq }: { faq: Faq | null }) {
           <Select name="isActive" label="Visible" defaultValue={faq?.isActive === false ? "off" : "on"} options={[{ value: "on", label: "Shown on FAQ page" }, { value: "off", label: "Hidden" }]} />
           <div className="flex gap-2">
             <Button type="submit" className="rounded-md" loading={pending}>{faq ? "Save question" : "Add question"}</Button>
-            {faq && <a href="/admin/content/faq" className="px-3 py-3 text-sm text-stone">Cancel</a>}
+            {faq && <Link href="/admin/content/faq" className="px-3 py-3 text-sm text-stone">Cancel</Link>}
           </div>
         </div>
       )}

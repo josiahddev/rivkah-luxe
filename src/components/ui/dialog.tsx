@@ -115,7 +115,7 @@ export function Modal({
             <CloseIcon />
           </button>
         </div>
-        <div className={cn(!hideTitle && "px-6 pb-6 pt-4")}>{children}</div>
+        <div className={cn("pb-[env(safe-area-inset-bottom)]", !hideTitle && "px-6 pb-6 pt-4")}>{children}</div>
       </div>
     </div>,
     document.body,
@@ -171,7 +171,7 @@ export function Drawer({
           </button>
         </div>
         <div className="flex-1 overflow-y-auto overscroll-contain">{children}</div>
-        {footer && <div className="shrink-0 border-t border-line bg-ivory">{footer}</div>}
+        {footer && <div className="shrink-0 border-t border-line bg-ivory pb-[env(safe-area-inset-bottom)]">{footer}</div>}
       </div>
     </div>,
     document.body,

@@ -24,6 +24,12 @@ export function ProductGallery({ images, name, videoUrl, activeImage }: { images
   const [zoom, setZoom] = useState<{ x: number; y: number } | null>(null);
   const track = useRef<HTMLDivElement>(null);
 
+  const go = (i: number) => {
+    setIndex(i);
+    const el = track.current;
+    if (el) el.scrollTo({ left: el.clientWidth * i, behavior: "smooth" });
+  };
+
   // When a variant with its own photo is chosen, jump to it.
   useEffect(() => {
     if (!activeImage) return;
@@ -32,11 +38,6 @@ export function ProductGallery({ images, name, videoUrl, activeImage }: { images
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeImage]);
 
-  const go = (i: number) => {
-    setIndex(i);
-    const el = track.current;
-    if (el) el.scrollTo({ left: el.clientWidth * i, behavior: "smooth" });
-  };
 
   if (!slides.length) return <div className="aspect-[4/5] bg-sand" />;
 

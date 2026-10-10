@@ -5,6 +5,7 @@ import { FacebookIcon, InstagramIcon, MailIcon, PhoneIcon, TikTokIcon, WhatsAppI
 import { NewsletterForm } from "./newsletter-form";
 import { Logo } from "./logo";
 import { whatsappLink } from "@/lib/whatsapp";
+import { PaymentBadges } from "./payment-badges";
 
 export async function SiteFooter() {
   const [s, categories] = await Promise.all([
@@ -93,13 +94,7 @@ export async function SiteFooter() {
             <Link className="hover:text-ivory" href="/shipping-delivery">Shipping</Link>
             <Link className="hover:text-ivory" href="/returns-refunds">Returns</Link>
           </nav>
-          <div className="flex items-center gap-2" aria-label="Payment methods accepted">
-            {["Visa", "Mastercard", "Amex", "Apple Pay", "Google Pay", "Paystack"].map((m) => (
-              <span key={m} className="border border-ivory/20 px-2 py-1 text-[0.6rem] uppercase tracking-[0.12em] text-mist">
-                {m}
-              </span>
-            ))}
-          </div>
+          <PaymentBadges />
         </div>
       </div>
     </footer>

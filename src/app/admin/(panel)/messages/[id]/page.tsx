@@ -27,9 +27,9 @@ export default async function MessagePage({ params }: PageProps<"/admin/messages
         </div>
         <div className="mt-6 flex flex-wrap gap-2">
           <a href={`mailto:${m.email}?subject=${encodeURIComponent(`Re: ${m.subject}`)}`} className="rounded-md bg-ink px-4 py-2.5 text-sm font-medium text-ivory">Reply by email</a>
-          <QuickAction action={() => setMessageStatus(m.id, "RESOLVED")} className="rounded-md border border-line px-4 py-2.5 text-sm hover:border-ink">Mark resolved</QuickAction>
-          <QuickAction action={() => setMessageStatus(m.id, "NEW")} className="rounded-md border border-line px-4 py-2.5 text-sm hover:border-ink">Mark as new</QuickAction>
-          <ConfirmAction action={() => deleteMessage(m.id)} label="Delete" variant="ghost" className="rounded-md text-danger" title="Delete this message?" message="It will be permanently removed." confirmLabel="Delete" redirectTo="/admin/messages" />
+          <QuickAction action={setMessageStatus.bind(null, m.id, "RESOLVED")} className="rounded-md border border-line px-4 py-2.5 text-sm hover:border-ink">Mark resolved</QuickAction>
+          <QuickAction action={setMessageStatus.bind(null, m.id, "NEW")} className="rounded-md border border-line px-4 py-2.5 text-sm hover:border-ink">Mark as new</QuickAction>
+          <ConfirmAction action={deleteMessage.bind(null, m.id)} label="Delete" variant="ghost" className="rounded-md text-danger" title="Delete this message?" message="It will be permanently removed." confirmLabel="Delete" redirectTo="/admin/messages" />
         </div>
       </Card>
     </>

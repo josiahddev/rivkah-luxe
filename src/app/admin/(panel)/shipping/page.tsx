@@ -19,7 +19,7 @@ export default async function ShippingPage({ searchParams }: PageProps<"/admin/s
       <PageHeader title="Shipping" description={`Set a shipping fee for each part of the world, in ${c}. At checkout, the customer's address picks the zone automatically. A zone limited to certain provinces/states wins over a whole-country zone.`} />
       <div className="grid gap-6 lg:grid-cols-[1fr_400px]">
         <Card title="Shipping zones">
-          {zones.length === 0 ? <p className="text-sm text-stone">No zones yet — customers can't check out until you add one.</p> : (
+          {zones.length === 0 ? <p className="text-sm text-stone">No zones yet — customers can&apos;t check out until you add one.</p> : (
             <ul className="-my-3 divide-y divide-line">
               {zones.map((z) => (
                 <li key={z.id} className="flex flex-wrap items-start gap-3 py-4">

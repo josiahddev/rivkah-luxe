@@ -79,7 +79,7 @@ export function ProductCard({ product: p, priority, sizes }: { product: ProductC
         </button>
 
         {/* Desktop hover actions */}
-        <div className="absolute inset-x-3 bottom-3 hidden translate-y-2 gap-2 opacity-0 transition-all duration-500 ease-[var(--ease-luxe)] group-focus-within:translate-y-0 group-focus-within:opacity-100 group-hover:translate-y-0 group-hover:opacity-100 md:flex">
+        <div className="absolute inset-x-3 bottom-3 hidden translate-y-2 gap-2 opacity-0 transition-all duration-500 ease-[var(--ease-luxe)] group-focus-within:translate-y-0 group-focus-within:opacity-100 group-hover:translate-y-0 group-hover:opacity-100 can-hover:flex">
           <button
             onClick={onAdd}
             disabled={!p.inStock || adding}
@@ -116,7 +116,7 @@ export function ProductCard({ product: p, priority, sizes }: { product: ProductC
           <button
             onClick={onAdd}
             disabled={!p.inStock || adding}
-            className="grid size-9 shrink-0 place-items-center border border-ink text-ink transition-colors active:bg-ink active:text-ivory disabled:border-line disabled:text-mist md:hidden"
+            className="grid size-9 shrink-0 place-items-center border border-ink text-ink transition-colors active:bg-ink active:text-ivory disabled:border-line disabled:text-mist can-hover:hidden"
             aria-label={single ? `Add ${p.name} to bag` : `Choose options for ${p.name}`}
           >
             {adding ? <Spinner /> : <PlusIcon size={16} />}

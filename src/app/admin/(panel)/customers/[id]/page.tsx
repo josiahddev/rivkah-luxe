@@ -34,9 +34,9 @@ export default async function CustomerPage({ params }: PageProps<"/admin/custome
         actions={
           u.role === "CUSTOMER" &&
           (u.status === "ACTIVE" ? (
-            <ConfirmAction action={() => setCustomerStatus(u.id, "SUSPENDED")} label="Suspend account" variant="outline" className="rounded-md" title="Suspend this account?" message="They'll be signed out and won't be able to sign in. Their orders are kept." confirmLabel="Suspend" />
+            <ConfirmAction action={setCustomerStatus.bind(null, u.id, "SUSPENDED")} label="Suspend account" variant="outline" className="rounded-md" title="Suspend this account?" message="They'll be signed out and won't be able to sign in. Their orders are kept." confirmLabel="Suspend" />
           ) : (
-            <ConfirmAction action={() => setCustomerStatus(u.id, "ACTIVE")} label="Re-activate account" variant="primary" className="rounded-md" title="Re-activate this account?" message="They'll be able to sign in again." confirmLabel="Re-activate" />
+            <ConfirmAction action={setCustomerStatus.bind(null, u.id, "ACTIVE")} label="Re-activate account" variant="primary" className="rounded-md" title="Re-activate this account?" message="They'll be able to sign in again." confirmLabel="Re-activate" />
           ))
         }
       />

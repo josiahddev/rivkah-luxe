@@ -9,7 +9,13 @@
     "lint": "eslint",
     "postinstall": "prisma generate",
     "db:seed": "prisma db seed",
-    "db:migrate": "prisma migrate deploy"
+    "db:migrate": "prisma migrate deploy",
+    "admin:create": "tsx scripts/create-admin.ts",
+    "db:remove-demo": "tsx scripts/remove-demo.ts",
+    "images:render": "node scripts/render-products.mjs",
+    "db:dev": "prisma dev start rivkah",
+    "vercel-build": "prisma generate && prisma migrate deploy && next build",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@prisma/adapter-pg": "^7.10.0",

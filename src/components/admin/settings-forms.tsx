@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 import { useState } from "react";
 import { deleteZone, inviteTeamMember, saveStoreSettings, saveZone, setTeamRole } from "@/server/admin/site";
 import { Checkbox, Input, Select, Textarea } from "@/components/ui/form";
@@ -57,7 +59,7 @@ export function ZoneForm({ zone: z, countries, currency }: { zone: Zone | null; 
           <Checkbox name="isActive" defaultChecked={z?.isActive ?? true} label="Zone is switched on" />
           <div className="flex gap-2">
             <Button type="submit" className="rounded-md" loading={pending}>{z ? "Save zone" : "Add zone"}</Button>
-            {z && <a href="/admin/shipping" className="px-3 py-3 text-sm text-stone">Cancel</a>}
+            {z && <Link href="/admin/shipping" className="px-3 py-3 text-sm text-stone">Cancel</Link>}
           </div>
         </div>
       )}
