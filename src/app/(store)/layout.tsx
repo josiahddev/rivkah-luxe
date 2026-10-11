@@ -8,7 +8,7 @@ import { CartDrawer } from "@/components/store/cart-drawer";
 import { SiteHeader } from "@/components/store/header";
 import { SiteFooter } from "@/components/store/footer";
 import { WhatsAppFloat } from "@/components/store/whatsapp-button";
-import { Logo } from "@/components/store/logo";
+import { BrandLogo } from "@/components/store/logo";
 import { NewsletterForm } from "@/components/store/newsletter-form";
 
 export default async function StoreLayout({ children }: LayoutProps<"/">) {
@@ -18,7 +18,7 @@ export default async function StoreLayout({ children }: LayoutProps<"/">) {
     return (
       <main className="grid min-h-dvh place-items-center bg-ink px-6 text-center text-ivory">
         <div className="max-w-md">
-          <Logo storeName={settings.storeName} logoUrl={settings.logoUrl} light />
+          <BrandLogo preload className="mx-auto h-36" />
           <h1 className="mt-10 font-display text-4xl italic">Something beautiful is coming.</h1>
           <p className="mt-4 text-mist">Our store is opening soon. Leave your email and be the first to know.</p>
           <div className="mt-8 text-left">

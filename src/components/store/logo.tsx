@@ -1,6 +1,12 @@
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 
+// The full crown + R/L + "RIVKAH LUXE" logo, gold on a transparent background.
+// Size it with a height class (e.g. "h-24"); the width follows.
+export function BrandLogo({ className, preload }: { className?: string; preload?: boolean }) {
+  return <Image src="/brand/logo-full.png" alt="Rivkah Luxe" width={741} height={564} sizes="240px" preload={preload} className={cn("h-24 w-auto", className)} />;
+}
+
 export function Logo({ logoUrl, storeName, className, light }: { logoUrl?: string; storeName: string; className?: string; light?: boolean }) {
   if (logoUrl) {
     return (

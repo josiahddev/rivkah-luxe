@@ -4,6 +4,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { getSettings } from "@/lib/settings";
 import { siteUrl } from "@/lib/utils";
 import { ToastProvider } from "@/components/ui/toast";
+import { BrandLogo } from "@/components/store/logo";
 import "./globals.css";
 
 const cormorant = Cormorant_Garamond({
@@ -53,9 +54,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html lang="en-CA" className={`${cormorant.variable} ${jost.variable} antialiased`}>
       <body className="min-h-dvh">
         <div className="brand-veil" aria-hidden="true">
-          <div className="brand-veil-mark text-center">
-            <div className="font-display text-5xl italic">R/L</div>
-            <div className="eyebrow mt-3 text-[0.65rem] text-champagne">Rivkah Luxe</div>
+          <div className="brand-veil-mark">
+            <BrandLogo preload className="h-28 sm:h-36" />
           </div>
         </div>
         <ToastProvider>{children}</ToastProvider>

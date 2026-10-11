@@ -3,6 +3,7 @@
 import Link from "next/link";
 
 import { useEffect } from "react";
+import { BrandLogo } from "@/components/store/logo";
 
 // Customers never see raw technical errors. Details are logged on the server.
 export default function GlobalError({ error, reset }: { error: Error & { digest?: string }; reset: () => void }) {
@@ -12,7 +13,7 @@ export default function GlobalError({ error, reset }: { error: Error & { digest?
   return (
     <main className="grid min-h-[70vh] place-items-center px-6 text-center">
       <div className="max-w-md">
-        <p className="font-display text-5xl italic text-gold-deep">R/L</p>
+        <BrandLogo className="mx-auto h-24" />
         <h1 className="mt-6 font-display text-4xl">Something went wrong.</h1>
         <p className="mt-4 text-stone">Please try again. If it keeps happening, contact us and we&apos;ll help.</p>
         {error.digest && <p className="mt-2 text-xs text-mist">Reference: {error.digest}</p>}

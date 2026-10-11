@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import { logout } from "@/server/auth";
+import { BrandLogo } from "@/components/store/logo";
 import * as I from "@/components/ui/icons";
 import { Drawer } from "@/components/ui/dialog";
 import type { NavGroup } from "./nav";
@@ -74,9 +75,8 @@ export function AdminSidebar({ groups, badges, storeName, userName, roleLabel, p
   if (part === "desktop")
     return (
       <aside className="fixed inset-y-0 left-0 hidden w-64 flex-col bg-ink lg:flex">
-        <Link href="/admin" className="flex h-16 items-center gap-3 border-b border-ivory/10 px-5">
-          <span className="font-display text-2xl italic text-champagne">R/L</span>
-          <span className="text-[0.7rem] uppercase tracking-[0.25em] text-ivory">{storeName}</span>
+        <Link href="/admin" aria-label={`${storeName} dashboard`} className="flex h-28 items-center justify-center border-b border-ivory/10 px-5">
+          <BrandLogo className="h-20" />
         </Link>
         <div className="flex-1 overflow-y-auto p-3">
           <NavList groups={groups} badges={badges} />

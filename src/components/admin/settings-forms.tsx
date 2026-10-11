@@ -97,7 +97,7 @@ export function StoreDetailsForm({ s }: { s: StoreSettings }) {
               <Input name="storeName" label="Store name" required defaultValue={s.storeName} error={e.storeName} />
               <Input name="tagline" label="Tagline" defaultValue={s.tagline} />
               <ImageField name="logoUrl" label="Logo (optional)" defaultValue={s.logoUrl} aspect="aspect-[3/1]" help="Leave empty to use the elegant text logo. Use a transparent PNG for best results." />
-              <ImageField name="faviconUrl" label="Browser tab icon (optional)" defaultValue={s.faviconUrl} aspect="aspect-square" help="A small square image. Leave empty to use the R/L monogram." />
+              <ImageField name="faviconUrl" label="Browser tab icon (optional)" defaultValue={s.faviconUrl} aspect="aspect-square" help="A small square image. Leave empty to use the crown monogram." />
             </div>
           </Card>
           <Card title="Contact details" description="Shown in your footer, contact page and emails.">

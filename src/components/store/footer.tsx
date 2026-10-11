@@ -3,7 +3,7 @@ import { db } from "@/lib/db";
 import { getSettings } from "@/lib/settings";
 import { FacebookIcon, InstagramIcon, MailIcon, PhoneIcon, TikTokIcon, WhatsAppIcon, XSocialIcon, YouTubeIcon } from "@/components/ui/icons";
 import { NewsletterForm } from "./newsletter-form";
-import { Logo } from "./logo";
+import { BrandLogo } from "./logo";
 import { whatsappLink } from "@/lib/whatsapp";
 import { PaymentBadges } from "./payment-badges";
 
@@ -27,7 +27,7 @@ export async function SiteFooter() {
     <footer className="no-print mt-24 bg-ink text-ivory">
       <div className="container-luxe grid gap-12 py-16 lg:grid-cols-[1.3fr_1fr_1fr_1fr] lg:gap-10 lg:py-20">
         <div className="max-w-sm">
-          <Logo storeName={s.storeName} light className="items-start" />
+          <BrandLogo className="h-24" />
           <p className="mt-6 text-[0.9rem] leading-relaxed text-mist">{s.footer.blurb}</p>
           <div className="mt-8">
             <p className={heading}>{s.newsletter.heading}</p>

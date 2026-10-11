@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { BrandLogo } from "@/components/store/logo";
 import Link from "next/link";
 import { db } from "@/lib/db";
 import { getSections, getSettings } from "@/lib/settings";
@@ -199,8 +200,8 @@ export default async function HomePage() {
               <div className="relative aspect-[4/5] overflow-hidden bg-sand">
                 {sections.brandStory.imageUrl && <Image src={sections.brandStory.imageUrl} alt="" fill sizes="(min-width:1024px) 45vw, 100vw" className="object-cover" />}
               </div>
-              <div className="absolute -bottom-6 -right-2 hidden border border-gold/50 bg-ivory px-6 py-5 sm:block lg:-right-10">
-                <p className="font-display text-4xl italic text-gold-deep">R/L</p>
+              <div className="absolute -bottom-6 -right-2 hidden border border-gold/50 bg-ink px-6 py-5 sm:block lg:-right-10">
+                <BrandLogo className="h-20" />
               </div>
             </Reveal>
             <Reveal delay={120}>
