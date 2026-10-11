@@ -14,7 +14,7 @@
     "db:remove-demo": "tsx scripts/remove-demo.ts",
     "images:render": "node scripts/render-products.mjs",
     "db:dev": "prisma dev start rivkah",
-    "vercel-build": "prisma generate && prisma migrate deploy && next build",
+    "vercel-build": "prisma generate && prisma migrate deploy && node scripts/seed-on-deploy.mjs && next build",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
