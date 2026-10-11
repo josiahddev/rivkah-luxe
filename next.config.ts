@@ -52,7 +52,7 @@ const nextConfig: NextConfig = {
         ],
       },
       {
-        source: "/admin/:path*",
+        source: process.env.NEXT_PUBLIC_DEMO_MODE === "true" ? "/:path*" : "/admin/:path*",
         headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }],
       },
     ];

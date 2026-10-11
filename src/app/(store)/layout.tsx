@@ -31,6 +31,11 @@ export default async function StoreLayout({ children }: LayoutProps<"/">) {
 
   return (
     <CartProvider initialCount={count} initialWishlist={saved}>
+      {process.env.NEXT_PUBLIC_DEMO_MODE === "true" && (
+        <div className="bg-champagne px-4 py-2 text-center text-[0.72rem] font-medium text-ink">
+          Preview of the Rivkah Luxe store — products and prices are samples and no real payments are taken.
+        </div>
+      )}
       {!settings.storeOpen && (
         <div className="bg-gold py-2 text-center text-xs font-medium text-ink">
           Your store is hidden from customers. Publish it in Admin → Settings when you&apos;re ready.
