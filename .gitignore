@@ -50,3 +50,8 @@ next-env.d.ts
 
 # private login note (never commit)
 ADMIN_LOGIN.local.md
+
+# local AI/tooling files (not part of the project)
+/.claude/
+AGENTS.md
+CLAUDE.md
