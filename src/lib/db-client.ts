@@ -12,6 +12,9 @@ export function createClient() {
   const url = new URL(raw);
   const schema = url.searchParams.get("schema") ?? undefined;
   url.searchParams.delete("schema");
-  const adapter = new PrismaPg({ connectionString: url.toString() }, schema ? { schema } : undefined);
+  // Serverless instances each get their own pool, and hosted Postgres plans cap
+  // total connections, so keep pools small and release idle connections quickly.
+  const max = Number(process.env.DATABASE_POOL_MAX) || (process.env.VERCEL ? 2 : 10);
+  const adapter = new PrismaPg({ connectionString: url.toString(), max, idleTimeoutMillis: 5000 }, schema ? { schema } : undefined);
   return new PrismaClient({ adapter });
 }
